@@ -5,8 +5,8 @@ import sys
 import shutil
 import pprint
 
-ENVS=['stage', 'stage03', 'prod', 'preprod04', 'prod03']
-ROLES=["autosuggest","fastapi-v3","search-be","search-publisher","cs-publisher","search-mt-app","search-mt-ds","search-cluster-es","nn","dn","jh","appsearch-nlp","zk","kafka","cass","qup","qup-offline","scoring","search-inside","state-translation","ss-lookup","vulcan","jenkins-node","cass-loader","splunk-v1","partner"]
+ENVS=['test', 'stage', 'prod']
+ROLES=["web","app","varnish","db"]
 nagios_conf = {}
 temp_hg = {}
 
@@ -34,7 +34,7 @@ def generate_hostname_IP_list(R,E):
 		return 1
 
 def nagios_host_object(E,h,i):
-	if E in ["prod03"]:
+	if E in ["prod"]:
 		contact = 'pager'
 		enabled = '1'
 	else:
